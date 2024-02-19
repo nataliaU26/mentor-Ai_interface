@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState} from'react'
+//Elements of Home page
+import Navbar from'../src/components/Navbar'
+import Sidebar from'../src/components/Sidebar'
+
+//pages
+import Home from'../src/pages/Home'
+import Explorer from'../src/pages/Explorer'
+import SignUpForm from'../src/pages/SignUpForm'
+import './App.scss';
 
 function App() {
+  const [showNav, setShownav]= useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header>
+      <div className="iconMods">
+      <GiHamburgerMenu onClick={()=> setShownav(!showNav)}/>
+        </div>
       </header>
-    </div>
+        <Sidebar show={showNav}/>
+        <div className="aligText">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Explorer" element={<Explorer />} />
+              <Route path="/SignUpForm" element={<SignUpForm />} />
+            </Routes>
+            </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,329 @@
+
+$darkblue:#010630;
+$lightblue:#2B306E;
+$pink:#FF00B1;
+$lightgrey:#EDEDED;
+$variablecolor:#B6B7CD;
+$light:#737373;
+
+
+
+*{margin: 0;padding: 0;}
+
+.prueba {
+    position: relative;
+    margin-bottom: 4rem;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2rem;
+      transform: translateX(-50%);
+      width: calc(100% + 40px);
+      border-bottom: 1px solid $variablecolor;
+    }
+  }
+
+.aligText{
+    height: 90vh;
+    display:flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.flex{
+    display:flex;
+}
+
+.iconMods{
+    margin-top: 0.5rem;
+    color: $lightgrey;
+    font-size: 2rem;
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color:$darkblue;
+}
+
+.Nameproduct{
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    margin-top: 8rem;
+    background-color:$lightblue;
+    font-family: 'Open Sans', sans-serif;
+
+    .product-name {
+        font-weight: 700; 
+        font-size: 2rem;
+        color:$lightgrey
+    }
+    .product-type {
+        font-weight: 100;
+        font-size: 1.5rem;
+        color:$variablecolor
+    }
+
+}
+header{ 
+    background-color: $lightblue;
+    padding: 1rem 2rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar{
+    position: fixed;
+    width: 30rem;
+    background-color: $darkblue;
+    position: absolute;
+    height: 100%;
+    padding: 5rem 2rem;
+    left: -100%;
+    transition: all 0.3s;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    ul{ 
+        padding: 0;
+        margin: 1;
+   
+    }
+    
+    ul li{
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+         
+        
+    }
+    ul li a {
+        color:$variablecolor;
+        text-decoration: none;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        padding: 1rem 1rem;
+        border-radius: 1rem;
+        transition: background-color 0.3s, padding 0.3s;
+    }
+    ul li a svg{
+        margin-right: 1.5rem;
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    ul li.active a {
+        color:$darkblue;
+        background-color:$pink;
+        padding: 1rem 12rem 1rem 1rem;
+        svg {
+            color:$lightblue;
+          }
+    }
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.Home{
+    margin: 10rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    .child1,
+    .child2 {margin-right: 10px;}
+}
+//prof dashboard cards of messages
+.stats-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid $lightgrey;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin: 2rem;
+    width: 38rem;
+
+  
+    .card-content {
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 700; 
+        color:$light;
+        margin-bottom: 0.5rem;
+      }
+  
+      .card-count {
+        margin-top: 1rem;
+        font-size: 4rem;
+        font-weight: bold;
+        color: black;
+      }
+    }
+  
+    .card-icon {
+      background-color:#FE0FB5; // Usa el color que prefieras
+      border-radius: 60%;
+      padding: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1.5rem;
+      svg {
+        width: 5rem;
+        height: 5rem;
+        color: white;
+      }
+    }
+  }
+//login register 
+
+///colors prof
+$inputcolor:#e0e0e08a;
+$labelcolor:#c1c0c0;
+$pinkselected:#c30d8c;
+
+.signup-form-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background: linear-gradient($darkblue,$pink);
+
+    .container{
+        width: 50rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        padding-bottom: 5rem;
+        padding-top: 2rem;
+        //background-image: url('../src/Assets/logo_back.svg');
+        background-color: white; 
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 1rem;
+     
+        .header{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            gap:1rem;
+            width: 100%;
+            margin-top: 2rem;
+            margin-left: 10rem;
+            .text1{
+                font-size: 3rem;
+                font-weight: 700; 
+                color:$darkblue;
+            }
+
+            .text2{
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                font-weight: 500; 
+                color:$pink;
+            }
+            .underline{
+                width: 4rem;
+                height: 0.3rem;
+                background: $pink;
+                border-radius: 0.5rem;
+            }
+            
+        }
+        .actions{
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+
+            .submit-button {
+                margin-top: 3rem;
+                padding: 0.6rem 3rem;
+                background-color: $pink;
+                border: none;
+                border-radius: 20px;
+                color: white;
+                font-size: 1.3rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+              
+                &:hover {
+                  background-color: $pinkselected;
+                }
+              
+                &:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 1px $pinkselected;
+                }
+              }
+        }
+        .input{
+            margin-top:2rem;
+            display:flex;
+            flex-direction: column;
+            gap:1rem;
+
+            .inputs{
+                position: relative;  
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                width: 100%; 
+                max-width: 38rem; 
+                height: 4.5rem;
+                background: $inputcolor;
+                border-radius: 0.5rem;
+            }
+            input{
+                width: 35rem;
+                height: 2rem;
+                background: transparent;
+                border:none;
+                outline:none;
+                margin-top: 0.5rem;
+                font-size: 1.2rem;
+                font-weight: 500; 
+            }
+            label {
+                color: $labelcolor;
+                position: absolute;
+                top: 50%; 
+                transform: translateY(-40%); 
+                transition: all 0.3s ease;
+                pointer-events: none;
+                font-size: 1rem;
+                font-weight: 500; 
+              }
+            
+              input:placeholder-shown + label,
+              input:focus + label {
+                
+                transform: translateY(-150%); // Ajuste para mantener el label visible
+                font-size: 0.75rem; // Reducir el tamaño del label al flotar
+                color: $labelcolor;
+                font-weight: 500; 
+              }
+            
+              .filled {
+                
+                transform: translateY(-150%);
+                font-size: 0.75rem;
+                font-weight: 500; 
+                color: $labelcolor;
+                
+              }
+              
+        }
+    }
+    
+}
