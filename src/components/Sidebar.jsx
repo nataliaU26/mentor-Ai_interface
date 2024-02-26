@@ -32,13 +32,15 @@ const Sidebar = ({show}) => {
             <Link to="/Explorer"><Icons.BsPersonCircle />Explorador</Link>
           </li>
         </ul>
-        <ul>
-          <li className={activeLink === '/SignUpForm' ? 'active' : ''} onClick={() => handleSetActiveLink('/SignUpForm')}>
-            <Link to="/SignUpForm"><Icons.BsPersonCircle />SignUpForm</Link>
-          </li>
-        </ul>
       </div>
     );
   };
   
 export default Sidebar;
+
+
+/*<ul>
+          <li className={activeLink === '/SignUpForm' ? 'active' : ''} onClick={() => handleSetActiveLink('/SignUpForm')}>
+            <Link to="/SignUpForm"><Icons.BsPersonCircle />SignUpForm</Link>
+          </li>
+        </ul>*/

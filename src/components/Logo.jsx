@@ -1,7 +1,7 @@
 const Logo = () => {
   const svgStyle = {
     width: '305px',
-    height: '120px',
+    height: '220px',
   };
 
   return (

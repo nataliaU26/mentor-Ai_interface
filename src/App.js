@@ -2,13 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState} from'react'
 //Elements of Home page
-import Navbar from'../src/components/Navbar'
+//<Route path="/SignUpForm" element={<SignUpForm />} />
+//import SignUpForm from'../src/pages/SignUpForm'
+//import Navbar from'../src/components/Navbar'
 import Sidebar from'../src/components/Sidebar'
 
 //pages
 import Home from'../src/pages/Home'
 import Explorer from'../src/pages/Explorer'
-import SignUpForm from'../src/pages/SignUpForm'
+
 import './App.scss';
 
 function App() {
@@ -25,7 +27,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Explorer" element={<Explorer />} />
-              <Route path="/SignUpForm" element={<SignUpForm />} />
             </Routes>
             </div>
     </Router>
