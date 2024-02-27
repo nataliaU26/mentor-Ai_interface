@@ -1,24 +1,90 @@
-{
-    "auth": {
-      "identityProviders": {
-        "customOpenIdConnectProviders": {
-          "aadb2c": {
-            "registration": {
-              "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
-              "clientCredential": {
-                "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
-              },
-              "openIdConnectConfiguration": {
-                "wellKnownOpenIdConfiguration": "https://B2CMENTORLOGIN.b2clogin.com/B2CMENTORLOGIN.onmicrosoft.com/B2C_1_B2CloginOnly/v2.0/.well-known/openid-configuration"
-              }
-            },
-            "login": {
-              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-              "scopes": [],
-              "loginParameterNames": []
-            }
-          }
+
+  {
+    "routes": [
+        {
+            "route": "/login",
+            "allowedRoles": ["anonymous"],
+            "rewrite": "/.auth/login/b2c"
+        },
+        {
+            "route": "/logout",
+            "allowedRoles": ["authenticated"],
+            "rewrite": "/.auth/logout"
+        },
+        {
+            "route": "/.auth/login/aad",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/apple",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/b2c",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/.auth/login/facebook",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/github",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/google",
+            "allowedRoles": ["anonyous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/twitter",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/*",
+            "allowedRoles": ["authenticated"]
         }
-      }
+    ],
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/css/*",
+            "/img/*",
+            "/js/*"
+        ]
+    },
+    "responseOverrides": {
+        "401": {
+            "statusCode": 302,
+            "redirect": "/login"
+        }
+    },
+    "auth": {
+        "identityProviders": {
+            "customOpenIdConnectProviders": {
+                "b2c": {
+                    "registration": {
+                      "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://projectcenterdev.b2clogin.com/projectcenterdev.onmicrosoft.com/B2C_1A_SIGNUPORLOGIN/v2.0/.well-known/openid-configuration"
+                            
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                        "scopes": [],
+                        "loginParameterNames": []
+                    }
+                }
+            }
+        }
     }
-  }
+}
